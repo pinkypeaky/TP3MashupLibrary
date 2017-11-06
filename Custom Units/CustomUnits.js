@@ -20,13 +20,33 @@ tau.mashups
                     types.TEAM_ITERATION, types.RELEASE, types.TEST_PLAN, types.TEST_PLAN_RUN, types.BUILD, types.EPIC
                 ],
                 sizes: [sizes.XS, sizes.S, sizes.M, sizes.L],
-                template: [
-                    '<div class="tau-board-unit__value" style=" max-width: 100%; max-height: 100%; width: 100%;">',
-                    '<img style="width: 100%;" src="<%! this.data.attachments[0].thumbnailUri.replace("width=100", "width=500").replace("height=100", "height=500") %>">',
-                    '</div>'
-                ],
-                sampleData: { attachments: [ { thumbnailUri: helper.url('/Javascript/tau/css/images/icons/users/karat.png?size=') } ] },
-                model: 'attachments:attachments.Select({thumbnailUri})',
+                template: {
+                    markup: [
+                        '<div class="tau-board-unit__value" style=" max-width: 100%; max-height: 100%; width: 100%;">',
+                            '<img style="width: 100%;" src="<%! fn.getImage(this.data.attachments).replace("width=100", "width=500").replace("height=100", "height=500") %>">',
+                        '</div>'
+                    ],
+                    customFunctions: {
+                        getImage: function(attachments) {
+                            for (var i = 0; i < attachments.length; i++) {
+                                if(attachments[i].mimeType.indexOf('image') >= 0) {
+                                    return attachments[i].thumbnailUri;
+                                }
+                            }
+                            return "";
+                        }
+                    }
+                },
+                sampleData: { 
+                    attachments: [ 
+                        { 
+                            thumbnailUri: helper.url('/Javascript/tau/css/images/icons/users/karat.png?size='),
+                            mimeType: 'image/png'
+                        } 
+                    ] 
+                    
+                },
+                model: 'attachments:attachments.Select({thumbnailUri,mimeType})',
                 priority: 2
             }
         ];
