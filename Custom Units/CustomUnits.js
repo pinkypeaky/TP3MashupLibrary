@@ -12,7 +12,7 @@ tau.mashups
                 id: 'attachment_thumbnail',
                 classId: 'tau-board-unit_type_attachment-thumbnail',
                 hideIf: function(data) {
-                    return !data.attachments.length;
+                    return !data.attachments.length || data.attachments.length === 0;
                 },
                 name: 'Attachment thumbnail',
                 types: [
@@ -28,7 +28,8 @@ tau.mashups
                     ],
                     customFunctions: {
                         getImage: function(attachments) {
-                            for (var i = 0; i < attachments.length; i++) {
+                            //for (var i = 0; i < attachments.length; i++) { //use this option to get the first image in the list
+                            for (var i = attachments.length-1; i >=0 ; i--) { //use this option to get the last image in the list
                                 if(attachments[i].mimeType.indexOf('image') >= 0) {
                                     return attachments[i].thumbnailUri;
                                 }
