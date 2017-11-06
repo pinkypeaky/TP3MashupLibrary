@@ -17,7 +17,7 @@ tau.mashups
                 name: 'Attachment thumbnail',
                 types: [
                     types.FEATURE, types.STORY, types.TASK, types.BUG, types.REQUEST, types.TEST_CASE, types.IMPEDIMENT, types.ITERATION,
-                    types.TEAM_ITERATION, types.RELEASE, types.TEST_PLAN, types.TEST_PLAN_RUN, types.BUILD
+                    types.TEAM_ITERATION, types.RELEASE, types.TEST_PLAN, types.TEST_PLAN_RUN, types.BUILD, types.EPIC
                 ],
                 sizes: [sizes.XS, sizes.S, sizes.M, sizes.L],
                 template: [
