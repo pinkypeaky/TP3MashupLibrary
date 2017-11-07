@@ -41,7 +41,7 @@ tau.mashups
                 sampleData: { 
                     attachments: [ 
                         { 
-                            thumbnailUri: helper.url('/Javascript/tau/css/images/icons/users/karat.png?size='),
+                            thumbnailUri: helper.url('/Javascript/tau/css/images/icons/users/mick.png'),
                             mimeType: 'image/png'
                         } 
                     ] 
