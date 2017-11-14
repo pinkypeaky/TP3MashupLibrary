@@ -14,7 +14,7 @@ tau.mashups
                 hideIf: function(data) {
                     return !data.attachments.length || data.attachments.length === 0;
                 },
-                name: 'Attachment thumbnail',
+                name: 'Attachment Thumbnail',
                 types: [
                     types.FEATURE, types.STORY, types.TASK, types.BUG, types.REQUEST, types.TEST_CASE, types.IMPEDIMENT, types.ITERATION,
                     types.TEAM_ITERATION, types.RELEASE, types.TEST_PLAN, types.TEST_PLAN_RUN, types.BUILD, types.EPIC
@@ -30,7 +30,7 @@ tau.mashups
                         getImage: function(attachments) {
                             //for (var i = 0; i < attachments.length; i++) { //use this option to get the first image in the list
                             for (var i = attachments.length-1; i >=0 ; i--) { //use this option to get the last image in the list
-                                if(attachments[i].mimeType.indexOf('image') >= 0) {
+                                if((attachments[i].mimeType != null) && (attachments[i].mimeType.indexOf('image') >= 0)) {
                                     return attachments[i].thumbnailUri;
                                 }
                             }
