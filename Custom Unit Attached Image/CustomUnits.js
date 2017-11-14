@@ -6,7 +6,7 @@ tau.mashups
     .addDependency('tau/models/board.customize.units/const.card.sizes')
     .addDependency('tau/models/board.customize.units/board.customize.units.base')
     .addMashup(function($, _, globalConfigurator, types, sizes, helper) {
-
+        var sizeInPx = 150;
         var units = [
             {
                 id: 'attachment_thumbnail',
@@ -23,7 +23,7 @@ tau.mashups
                 template: {
                     markup: [
                         '<div class="tau-board-unit__value" style=" max-width: 100%; max-height: 100%; width: 100%;">',
-                            '<img style="width: 100%;" src="<%! fn.getImage(this.data.attachments).replace("width=100", "width=500").replace("height=100", "height=500") %>">',
+                            '<img style="width: 100%;" src="<%! fn.getImage(this.data.attachments).replace("width=100", "width=' + sizeInPx + '").replace("height=100", "height=' + sizeInPx + '") %>">',
                         '</div>'
                     ],
                     customFunctions: {
